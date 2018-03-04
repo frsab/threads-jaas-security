@@ -1,0 +1,37 @@
+{
+  "discription": "sample json file for a jaas framework tutorial",
+  "framework": {
+    "Core Classes and Interfaces": [
+      {
+        "Common Classes": [
+          "Subject",
+          "Principals",
+          "Credentials"
+        ]
+      },
+      {
+        "Authentication Classes and Interfaces": [
+          "LoginContext",
+          "LoginModule",
+          "CallbackHandler",
+          "Callback"
+        ]
+      },
+      {
+        "Authorization Classes": [
+          "Policy",
+          "AuthPermission",
+          "PrivateCredentialPermission"
+        ]
+      }
+    ],
+    "acronym": "jaas",
+    "domain": "security"
+  },
+  "groups users": {},
+  "name": "json file",
+  "project": {
+    "discription": "example illustrating the implementation of JAAS framework. it is about multiple treads, these threads are spread over several different revilege group and different authentication method the authentication and authorization of different actors are managed using the JAAS framework",
+    "name": "threads_jaas_security"
+  }
+}
