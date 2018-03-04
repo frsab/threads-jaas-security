@@ -1,4 +1,4 @@
-package threads_jaas_security.device;
+package threads_jaas_security;
 
 public class ScenarioMain {
 
