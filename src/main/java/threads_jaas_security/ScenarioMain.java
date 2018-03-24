@@ -6,7 +6,10 @@ import threads_jaas_security.device.MasterDevice;
 
 public class ScenarioMain {
 
+	public static boolean endTimeout;
+
 	public static void main(String[] args) {
+		endTimeout = false;
 		LoginContext lc = null;
 		// try {
 		// lc = new LoginContext("Sample", new MyCallbackHandler());
@@ -30,8 +33,15 @@ public class ScenarioMain {
 		 * lancher the slave threads
 		 */
 		masterDevice.setNbSlaves(10);
-		masterDevice.run();
-
+		masterDevice.start();
+		try {
+			Thread.sleep(10000);
+			endTimeout = true;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			endTimeout = true;
+		}
 	}
 
 }

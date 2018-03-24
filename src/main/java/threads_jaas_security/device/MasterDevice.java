@@ -24,7 +24,7 @@ public class MasterDevice extends Device {
 		
 		for (SlaveDevice slaveDevice : slaves) {
 			System.out.println(" run slave  " + slaveDevice.getName());
-			slaveDevice.run();
+			slaveDevice.start();
 		}
 	}
 

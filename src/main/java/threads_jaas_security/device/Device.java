@@ -4,14 +4,15 @@ public abstract class Device extends Thread {
 
 	protected void speakOutRandom(String name) {
 		System.out.println(name);
-		for (int i = 0; i < 5; i++) {
+		System.out.println("______"+name + "(speakOutRandom)");
+		for (int i = 0; i < 50; i++) {
 			System.out.println(name + "(speakOutRandom)");
 
 		}
 	}
 
 	protected void speakOut(String name) {
-		System.out.println(name);
+		System.out.println(name + " Priority : "+this.getPriority());
 
 	}
 
