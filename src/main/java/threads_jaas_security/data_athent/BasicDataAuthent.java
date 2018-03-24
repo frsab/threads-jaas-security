@@ -1,6 +1,9 @@
 package threads_jaas_security.data_athent;
 
 public class BasicDataAuthent extends DataAuthent{
+	private String login;
+	private String password;	
+	
 	private String hashLogin;
 	private String hashPassword;
 	private String hashConcatLoginPassword;
@@ -33,6 +36,30 @@ public class BasicDataAuthent extends DataAuthent{
 	}
 	public void setHashConcatLoginPassword(String hashConcatLoginPassword) {
 		this.hashConcatLoginPassword = hashConcatLoginPassword;
+	}
+	/**
+	 * @return the login
+	 */
+	public String getLogin() {
+		return login;
+	}
+	/**
+	 * @param login the login to set
+	 */
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
