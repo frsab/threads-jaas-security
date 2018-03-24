@@ -4,13 +4,15 @@ public class SlaveDevice extends Device {
 
 	@Override
 	public void run() {
-		String threadName = Thread.currentThread().getName();
-		    System.out.println("Hello  SlaveDevice " + threadName);
-			speakOut();
-
+		speakOut(this.getName());
+		speakOut(this.getPriority());
+		
+			
+//			for (; true; ) {
+//				speakOutRandom(this.getName());
+//				
+//			}
 	}
-
-
 
 
 

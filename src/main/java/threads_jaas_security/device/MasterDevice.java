@@ -5,17 +5,26 @@ import java.util.List;
 
 public class MasterDevice extends Device {
 	private int nbSlaves;
-List<SlaveDevice>  slaves = new LinkedList<SlaveDevice>();
-
+	List<SlaveDevice> slaves = new LinkedList<SlaveDevice>();
 
 	@Override
 	public void run() {
-		String threadName = Thread.currentThread().getName();
-	    System.out.println(this.getClass().toString() +"run" +threadName);
-	    for (int i = 0; i < nbSlaves; i++) {
-			SlaveDevice e = new SlaveDevice();
-			slaves.add(e );
-			e.run();
+		this.setName("[master " + this.getNbSlaves() + "]");
+		System.out.println("master " + this.getNbSlaves() + " static");
+		System.out.println(this.getClass().toString() + " run " + this.getName());
+		for (int i = 0; i < nbSlaves; i++) {
+			SlaveDevice slaveThread = new SlaveDevice();
+			slaves.add(slaveThread);
+			String nom=i + " slave";
+			System.out.println("init slaveThread with name ["+nom+"]");
+			slaveThread.setName(nom);
+
+		}
+		System.out.println("slaves size to run " + slaves.size());
+		
+		for (SlaveDevice slaveDevice : slaves) {
+			System.out.println(" run slave  " + slaveDevice.getName());
+			slaveDevice.run();
 		}
 	}
 
