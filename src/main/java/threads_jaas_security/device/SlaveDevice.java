@@ -15,7 +15,7 @@ public class SlaveDevice extends Device {
 
 	private void makeAStain() {
 		speakOut(this.getName());
-		
+
 	}
 
 }
