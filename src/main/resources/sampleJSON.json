@@ -31,7 +31,8 @@
   "groups users": {},
   "name": "json file",
   "project": {
-    "discription": "example illustrating the implementation of JAAS framework. it is about multiple treads, these threads are spread over several different revilege group and different authentication method the authentication and authorization of different actors are managed using the JAAS framework",
+    "discription": "Example illustrating the implementation of JAAS Framework, it is about several Treads, these Threads are spread over several different privilege groups and different authentication methodsAuthentication and authorization of different actors and managed using the JAAS Framework",
+    "french discription": "  Exemple illustrant la mise en œuvre de Framework JAAS, il s'agit de plusieurs Treads, ces Threads sont repartis sur plusieurs groupes de privilège différents et de méthodes d'authentification différentes L’authentification et l'autorisation de différents acteurs et géré en utilisant le Framework JAAS",
     "name": "threads_jaas_security"
   }
 }
