@@ -5,7 +5,6 @@ import java.util.List;
 
 import threads_jaas_security.data_athent.DataAuthentTypes;
 import threads_jaas_security.data_athent.exception.NotImplementedBehavior;
-import threads_jaas_security.exception.NotInitializedThredListException;
 
 public class MasterDevice extends Device {
 	private int nbSlaves;
