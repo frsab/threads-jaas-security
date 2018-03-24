@@ -21,8 +21,13 @@ public class ScenarioMain {
 		System.out.println("hello ");
 		MasterDevice masterDevice = new MasterDevice();
 		/**
-		 * enter the number of slave threads run the master thread to initialize it add
-		 * for each a login and password lancher the slave threads
+		 * enter the number of slave threads.
+		 * 
+		 * run the master thread to initialize it.
+		 * 
+		 * add for each a login and password.
+		 * 
+		 * lancher the slave threads
 		 */
 		masterDevice.setNbSlaves(10);
 		masterDevice.run();
