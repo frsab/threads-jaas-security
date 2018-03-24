@@ -22,7 +22,7 @@ public class MasterDevice extends Device {
 			Slave slave;
 			try {
 				slave = slaveBuilder.getSlave(DataAuthentTypes.BASIC, nom);
-				//slaves.add(slave);
+				slaves.add(slave);
 			} catch (NotImplementedBehavior e) {
 				e.printStackTrace();
 			}
