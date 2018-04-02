@@ -33,7 +33,7 @@ public class ScenarioMain {
 
 		LoginContext lc = null;
 		try {
-			lc = new LoginContext("Sample", new MyCallbackHandler());
+			lc = new LoginContext("Sample", new MyCallbackHandler("my_login_string", "my_password_string"));
 
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. LoginException :" + le.getMessage());
@@ -43,7 +43,7 @@ public class ScenarioMain {
 			// System.exit(-1);
 		}
 		System.out.println("hello ");
-		MasterDevice masterDevice = new MasterDevice();
+		MasterDevice masterDevice = new MasterDevice("MyUserName");
 		/**
 		 * enter the number of slave threads.
 		 * 

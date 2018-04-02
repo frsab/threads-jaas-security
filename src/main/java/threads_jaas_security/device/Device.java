@@ -1,6 +1,8 @@
 package threads_jaas_security.device;
 
-public abstract class Device extends Thread {
+import java.security.Principal;
+
+public abstract class Device extends Thread implements Principal {
 
 	protected void speakOutRandom(String name) {
 		System.out.println(name);

@@ -13,9 +13,18 @@ import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
 public class MyCallbackHandler implements CallbackHandler {
+	String name;
+	String password;
+
+	public MyCallbackHandler(String name, String password) {
+		System.out.println("CallbackHandler-constructor called with name : '" + name + "' and pswd: '" + password + "'");
+		this.name = name;
+		this.password = password;
+	}
 
 	@Override
 	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+		System.out.println("callbacks.length : "+callbacks.length);
 		for (int i = 0; i < callbacks.length; i++) {
 			if (callbacks[i] instanceof TextOutputCallback) {
 
@@ -61,7 +70,7 @@ public class MyCallbackHandler implements CallbackHandler {
 	private char[] readPassword(InputStream in) {
 		char[] result = null;
 		for (int i = 0; i < 10; i++) {
-			result[i]=(char) i;
+			result[i] = (char) i;
 		}
 		return result;
 	}
