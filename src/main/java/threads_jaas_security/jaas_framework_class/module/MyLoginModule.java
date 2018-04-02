@@ -33,7 +33,7 @@ public class MyLoginModule implements LoginModule {
     private boolean commitSucceeded = false;
 
     // testUser's SamplePrincipal
-    private Device userPrincipal;
+    private Device userDevicePrincipal;
     
     /**
 	 * *
@@ -89,7 +89,7 @@ public class MyLoginModule implements LoginModule {
 				"to garner authentication information from the user");
 
 		Callback[] callbacks = new Callback[2];
-		callbacks[0] = new NameCallback("user name: ");
+		callbacks[0] = new NameCallback("user name !: ");
 		callbacks[1] = new PasswordCallback("password: ", false);
 	 
 		try {
@@ -131,19 +131,14 @@ public class MyLoginModule implements LoginModule {
 		if (username.equals("testUser"))
 		    usernameCorrect = true;
 		if (usernameCorrect &&
-		    password.length == 12 &&
-		    password[0] == 't' &&
-		    password[1] == 'e' &&
-		    password[2] == 's' &&
-		    password[3] == 't' &&
-		    password[4] == 'P' &&
-		    password[5] == 'a' &&
-		    password[6] == 's' &&
-		    password[7] == 's' &&
-		    password[8] == 'w' &&
-		    password[9] == 'o' &&
-		    password[10] == 'r' &&
-		    password[11] == 'd') {
+		    password.length == 6 &&
+		    password[0] == 'a' &&
+		    password[1] == 'z' &&
+		    password[2] == 'e' &&
+		    password[3] == 'r' &&
+		    password[4] == 't' &&
+		    password[5] == 'y' 
+		    ) {
 
 		    // authentication succeeded!!!
 		    passwordCorrect = true;
@@ -198,17 +193,17 @@ public class MyLoginModule implements LoginModule {
 		if (succeeded == false) {
 		    return false;
 		} else {
-		    // add a Principal (authenticated identity)
+		    // add a Device  (authenticated identity)
 		    // to the Subject
 
-		    // assume the user we authenticated is the SamplePrincipal
-		    userPrincipal = new MasterDevice(username);
-			if (!subject.getPrincipals().contains(userPrincipal))
-			subject.getPrincipals().add(userPrincipal);
+		    // assume the user we authenticated is the Device Principal
+		    userDevicePrincipal = new MasterDevice(username);
+			if (!subject.getPrincipals().contains(userDevicePrincipal))
+			subject.getPrincipals().add(userDevicePrincipal);
 
 		    if (debug) {
 			System.out.println("\t\t[SampleLoginModule] " +
-					"added SamplePrincipal to Subject");
+					"added Device Principal to Subject");
 		    }
 
 		    // in any case, clean out state
@@ -255,7 +250,7 @@ public class MyLoginModule implements LoginModule {
 		    password[i] = ' ';
 		password = null;
 	    }
-	    userPrincipal = null;
+	    userDevicePrincipal = null;
 	} else {
 	    // overall authentication succeeded and commit succeeded,
 	    // but someone else's commit failed
@@ -267,7 +262,7 @@ public class MyLoginModule implements LoginModule {
     /**
      * Logout the user.
      *
-     * <p> This method removes the <code>SamplePrincipal</code>
+     * <p> This method removes the <code>Device</code>
      * that was added by the <code>commit</code> method.
      *
      * <p>
@@ -280,7 +275,7 @@ public class MyLoginModule implements LoginModule {
 	@Override
 	public boolean logout() throws LoginException {
 
-	subject.getPrincipals().remove(userPrincipal);
+	subject.getPrincipals().remove(userDevicePrincipal);
 	succeeded = false;
 	succeeded = commitSucceeded;
 	username = null;
@@ -289,7 +284,7 @@ public class MyLoginModule implements LoginModule {
 		password[i] = ' ';
 	    password = null;
 	}
-	userPrincipal = null;
+	userDevicePrincipal = null;
 	return true;
     }
 

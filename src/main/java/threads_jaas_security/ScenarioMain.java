@@ -15,20 +15,6 @@ public class ScenarioMain {
 
 	public static void main(String[] args) throws IOException {
 		endTimeout = false;
-
-		String[] listefichiers;
-
-		int i;
-		File repertoire = new File("./src/main/resources/");
-		// File repertoire = new File("./src/main/ressources");
-		// /threads_jaas_security/jaas.config
-		// File repertoire = new File("\\threads_jaas_security");
-		listefichiers = repertoire.list();
-		for (i = 0; i < listefichiers.length; i++) {
-			System.out.println(listefichiers[i].substring(0, listefichiers[i].length()));// on choisit la sous
-
-		}
-
 		System.setProperty("java.security.auth.login.config", "./src/main/resources/jaas.config");
 
 		LoginContext lc = null;
@@ -37,12 +23,17 @@ public class ScenarioMain {
 
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. LoginException :" + le.getMessage());
-			// System.exit(-1);
+			 System.exit(-1);
 		} catch (SecurityException se) {
 			System.err.println("Cannot create LoginContext. SecurityException" + se.getMessage());
-			// System.exit(-1);
+			System.exit(0);
 		}
-		System.out.println("hello ");
+		try {
+			lc.login();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		MasterDevice masterDevice = new MasterDevice("MyUserName");
 		/**
 		 * enter the number of slave threads.
