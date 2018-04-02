@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<securityDomain xmlns="http://www.ibm.com/xmlns/prod/streams/security/domain/config/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <authentication>
+   <jaas>       
+     <jaasConfig name="streams-jaas">
+       <loginModule moduleClass="com.ibm.streams.security.authc.module.X509CertLoginModule" flag="sufficient">
+       </loginModule>
+
+       <loginModule moduleClass="com.ibm.streams.security.authc.module.PAMLoginModule" flag="sufficient">
+        <moduleOption name="service" value="login" />
+       </loginModule>
+
+       <loginModule moduleClass="com.ibm.streams.security.authc.module.LDAPLoginModule" flag="sufficient">
+       <moduleOption name="serverUrl" value="ldap://bluepages.ibm.com:389" />
+       <moduleOption name="userDnPattern" value="uid=*,c=us,ou=bluepages,o=ibm.com" />
+       <moduleOption name="userSecondaryLookup" value="(&amp;amp;(objectclass=ibmperson)(notesshortname=*)) uid" />
+       <moduleOption name="groupObjectclass" value="groupOfUniqueNames" />
+       <moduleOption name="groupSearchBaseDn" value="ou=memberlist,ou=ibmgroups,o=ibm.com" />
+       <moduleOption name="groupAttributeWithUserNames" value="uniquemember" />
+       <moduleOption name="userAttributeStoredInGroupAttribute" value="dn" />
+      </loginModule>
+     </jaasConfig>
+    </jaas>
+   </authentication>
+</securityDomain>
