@@ -10,7 +10,6 @@ import threads_jaas_security.jaas_framework_class.MyCallbackHandler;
 
 public class ScenarioMain {
 	public static void main(String[] args) throws IOException {
-		endTimeout = false;
 		/**
 		 * add property java.security.auth.login.config
 		 */
@@ -43,11 +42,8 @@ public class ScenarioMain {
 		masterDevice.start();
 		try {
 			Thread.sleep(10000);
-			endTimeout = true;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		} finally {
-			endTimeout = true;
 		}
 	}
 
