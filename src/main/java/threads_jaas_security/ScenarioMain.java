@@ -43,15 +43,19 @@ public class ScenarioMain {
 		 */
 		masterDevice.setNbSlaves(0);
 		masterDevice.start();
+		timeout(100);
+
+	}
+
+	private static void timeout(int time ) {
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(time);
 			endTimeout = true;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
 			endTimeout = true;
 		}
-
 	}
 
 	private static LoginContext instanciateLoginContext() {
