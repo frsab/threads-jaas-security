@@ -57,24 +57,20 @@ public class MyCallbackHandler implements CallbackHandler {
 				nc.setName((new BufferedReader(new InputStreamReader(System.in))).readLine());
 
 			} else if (callbacks[i] instanceof PasswordCallback) {
-
-				System.out.println("instanceof PasswordCallback");
+				//TODO
+				System.out.println("Vous devez saisir votre mot de passe, on fait de notre mieux pour que ça soit le plus securisé possible");
+				System.out.println("Vous devez saisir votre mot de passe, on fait de notre mieux pour que ça soit le plus securisé possible");
 
 				// prompt the user for sensitive information
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
-				System.out.println("instanceof PasswordCallback end 1s");
-
 				System.err.print(pc.getPrompt());
-				System.out.println("instanceof PasswordCallback end 2s");
 				System.err.flush();
-				System.out.println("instanceof PasswordCallback end 3s");
 				InputStream systemIn = System.in;
 				System.out.println("instanceof PasswordCallback endsystemIn" + systemIn);
 
-				 char[] readPassword=readPassword();
-				//char[] readPassword = { 'a', 'z', 'e', 'r', 't', 'y' };
+				 //char[] readPassword=readPassword();
+				char[] readPassword = { 'a', 'z', 'e', 'r', 't', 'y' };
 				pc.setPassword(readPassword);
-				System.out.println("instanceof PasswordCallback end 4s");
 
 			} else {
 				throw new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback");
@@ -85,9 +81,10 @@ public class MyCallbackHandler implements CallbackHandler {
 	private char[] readPassword() {
 		char[] r = null;
 		char[] s = { 'a', 'z', 'e', 'r', 't', 'y' };
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 6; i++) {
 			r[i] = (char) i;
 		}
+		System.out.println(s+ "   est le mot de passe genere pour vous");
 		return s;
 	}
 
