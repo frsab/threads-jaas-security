@@ -34,7 +34,7 @@ public class MasterDevice extends Device {
 		this.setName("[master " + this.getNbSlaves() + "]");
 		System.out.println("master " + this.getNbSlaves() + " static");
 		System.out.println(this.getClass().toString() + " run " + this.getName());
-		SlaveBuildere slaveBuilder = new SlaveBuildere();
+		SlaveBuilder slaveBuilder = new SlaveBuilder();
 		for (int i = 0; i < nbSlaves; i++) {
 			String nom = i + " slave";
 			Slave slave;

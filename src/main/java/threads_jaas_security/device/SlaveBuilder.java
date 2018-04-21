@@ -5,7 +5,7 @@ import threads_jaas_security.data_athent.DataAuthentBuilder;
 import threads_jaas_security.data_athent.DataAuthentTypes;
 import threads_jaas_security.data_athent.exception.NotImplementedBehavior;
 
-public class SlaveBuildere {
+public class SlaveBuilder {
 	private static DataAuthentBuilder dataAuthentBuilder = new DataAuthentBuilder();
 	public Slave getSlave(DataAuthentTypes dataAuthentTypes, String nom) throws NotImplementedBehavior {
 		Slave slave = new Slave();
