@@ -128,9 +128,12 @@ public class MyLoginModule implements LoginModule {
 
 		// verify the username/password
 		boolean usernameCorrect = false;
-		boolean passwordCorrect = false;
-		if (username.equals("testUser"))
-			usernameCorrect = true;
+		usernameCorrect = checkUserName(usernameCorrect);
+		return checkPasswordAndUserName(usernameCorrect);
+	}
+
+	private boolean checkPasswordAndUserName(boolean usernameCorrect) throws FailedLoginException {
+		boolean passwordCorrect;
 		if (usernameCorrect && password.length == 6 && password[0] == 'a' && password[1] == 'z' && password[2] == 'e'
 				&& password[3] == 'r' && password[4] == 't' && password[5] == 'y') {
 
@@ -156,6 +159,12 @@ public class MyLoginModule implements LoginModule {
 				throw new FailedLoginException("Password Incorrect");
 			}
 		}
+	}
+
+	private boolean checkUserName(boolean usernameCorrect) {
+		if (username.equals("testUser"))
+			usernameCorrect = true;
+		return usernameCorrect;
 	}
 
 	/**

@@ -27,11 +27,9 @@ public class MyCallbackHandler implements CallbackHandler {
 	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
 		System.out.println("callbacks.length : " + callbacks.length);
 		for (int i = 0; i < callbacks.length; i++) {
-			System.out.println("callbacks["	+i+ "]: " + callbacks[i]);
+			System.out.println("callbacks[" + i + "]: " + callbacks[i]);
 			System.out.println("instance of " + callbacks[i].getClass().getName());
 			if (callbacks[i] instanceof TextOutputCallback) {
-				System.out.println("instanceof TextOutputCallback");
-
 				// display the message according to the specified type
 				TextOutputCallback toc = (TextOutputCallback) callbacks[i];
 				switch (toc.getMessageType()) {
@@ -59,22 +57,22 @@ public class MyCallbackHandler implements CallbackHandler {
 				nc.setName((new BufferedReader(new InputStreamReader(System.in))).readLine());
 
 			} else if (callbacks[i] instanceof PasswordCallback) {
-				
+
 				System.out.println("instanceof PasswordCallback");
 
 				// prompt the user for sensitive information
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
 				System.out.println("instanceof PasswordCallback end 1s");
-				
+
 				System.err.print(pc.getPrompt());
 				System.out.println("instanceof PasswordCallback end 2s");
 				System.err.flush();
 				System.out.println("instanceof PasswordCallback end 3s");
-				InputStream systemIn=System.in;
-				System.out.println("instanceof PasswordCallback endsystemIn"+systemIn);
+				InputStream systemIn = System.in;
+				System.out.println("instanceof PasswordCallback endsystemIn" + systemIn);
 
-//				char[] readPassword=readPassword();
-				char[] readPassword= {'a','z','e','r','t','y'};
+				 char[] readPassword=readPassword();
+				//char[] readPassword = { 'a', 'z', 'e', 'r', 't', 'y' };
 				pc.setPassword(readPassword);
 				System.out.println("instanceof PasswordCallback end 4s");
 
@@ -86,7 +84,7 @@ public class MyCallbackHandler implements CallbackHandler {
 
 	private char[] readPassword() {
 		char[] r = null;
-		char[] s = {'a','z','e','r','t','y'};
+		char[] s = { 'a', 'z', 'e', 'r', 't', 'y' };
 		for (int i = 0; i < 10; i++) {
 			r[i] = (char) i;
 		}
