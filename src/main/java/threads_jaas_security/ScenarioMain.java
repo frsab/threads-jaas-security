@@ -20,17 +20,10 @@ public class ScenarioMain {
 		/**
 		 * instanciate LoginContext object
 		 */
-		LoginContext lc = instanciateLoginContext();
-		try {
-			System.out.println("begin login Main");
-			lc.login();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} finally {
-			System.out.println("End login Main");
-
-		}
+		MyCallbackHandler myCallbackHandler= new MyCallbackHandler();
+		LoginContext lc = instanciateLoginContext(myCallbackHandler);
+		invokeLoginMethpdOfLoginContext(lc);
+		
 		MasterDevice masterDevice = new MasterDevice("MyUserName");
 		/**
 		 * enter the number of slave threads.
@@ -47,6 +40,18 @@ public class ScenarioMain {
 
 	}
 
+	private static void invokeLoginMethpdOfLoginContext(LoginContext lc) {
+		try {
+			System.out.println("begin login LoginContext");
+			lc.login();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		} finally {
+			System.out.println("End login LoginContext");
+
+		}
+	}
+
 	private static void timeout(int time ) {
 		try {
 			Thread.sleep(time);
@@ -58,10 +63,11 @@ public class ScenarioMain {
 		}
 	}
 
-	private static LoginContext instanciateLoginContext() {
+	private static LoginContext instanciateLoginContext(MyCallbackHandler myCallbackHandler) {
 		LoginContext lc = null;
+		
 		try {
-			lc = new LoginContext("Sample", new MyCallbackHandler("my_login_string", "my_password_string"));
+			lc = new LoginContext("Sample",myCallbackHandler );
 
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. LoginException :" + le.getMessage());

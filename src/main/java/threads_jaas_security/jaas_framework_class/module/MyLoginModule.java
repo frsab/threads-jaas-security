@@ -1,6 +1,5 @@
 package threads_jaas_security.jaas_framework_class.module;
 
-import java.security.Principal;
 import java.util.Map;
 
 import javax.security.auth.Subject;
@@ -69,6 +68,11 @@ public class MyLoginModule implements LoginModule {
 
 	}
 
+	
+	public boolean justCall() throws LoginException {
+		System.out.println("im just called from loginContext");
+		return true;
+	}
 	/**
 	 * Authenticate the user by prompting for a user name and password.
 	 *
@@ -194,9 +198,7 @@ public class MyLoginModule implements LoginModule {
 		if (succeeded == false) {
 			return false;
 		} else {
-			// add a Device (authenticated identity)
-			// to the Subject
-
+			// add a Device (authenticated identity) to the Subject
 			// assume the user we authenticated is the Device Principal
 			userDevicePrincipal = new MasterDevice(username);
 			if (!subject.getPrincipals().contains(userDevicePrincipal))
